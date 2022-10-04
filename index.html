@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <style>
+        h1 {
+  text-align: center;
+}
+
+body { background-color: rgb(87, 152, 148)}
+
+#door1 {
+  display: inline-block;
+  padding: 5%;
+  background-color: red;
+  text-align: center;
+  font-size: 25px;
+  width: 20%;
+  border: 5px solid black;
+  border-radius: 5px;
+}
+
+#door2 {
+  display: inline-block;
+  padding: 5%;
+  background-color: gold;
+  text-align: center;
+  font-size: 25px;
+  width: 20%;
+  border: 5px solid black;
+  border-radius: 5px;
+}
+
+#door3 {
+  display: inline-block;
+  padding: 5%;
+  background-color: green;
+  text-align: center;
+  font-size: 25px;
+  width: 20%;
+  border: 5px solid black;
+  border-radius: 5px;
+}
+
+#button:hover {
+  background-color: orange;
+  transition: 0.7s;
+  border: 5px solid red;
+  border-radius: 10px;
+}
+
+#button {
+  position: absolute;
+  font-size: 20px;
+  background-color:#0a0a23;
+  color: #fff;
+  border: 5px solid black;
+  border-radius:10px;
+}
+        </style>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Where am I</title>
+    </head>
+    <body>  
+        <div class="header"><h1>Where am I Hiding??</h1>
+        </div>
+        <div id="door1" onclick ="changeOne()">INSIDE</div>
+        <div id="door2" onclick ="changeTwo()">OUTSIDE</div>
+        <div id="door3" onclick ="changeThree()">IN THE VAN</div>
+    </div>
+    <br>
+    <br>
+    
+     <button id="button" onclick="reset()">Play Again</button>
+       <script>
+       
+function reset () {
+    document.getElementById("door1").style.color = "black";
+    document.getElementById("door1").style.backgroundColor = "red"; 
+    document.getElementById("door1").innerHTML = "INSIDE";
+    document.getElementById("door2").style.color = "black";
+    document.getElementById("door2").style.backgroundColor = "gold";  
+    document.getElementById("door2").innerHTML = "OUTSIDE";
+    document.getElementById("door3").style.color = "black";
+    document.getElementById("door3").style.backgroundColor = "green";
+    document.getElementById("door3").innerHTML = "IN THE VAN";
+    let number1 = '';
+    let number2 = '';
+    let number3 = '';
+    randomCard();
+}
+
+
+const randomCard = () => {
+    let number = Math.floor(Math.random() * 3);
+    if (number === 0) {
+        number1 = 1;
+        number2 = 2;
+        number3 = 3;
+    } else if (number === 1) {
+        number1 = 2;
+        number2 = 3;
+        number3 = 1;
+    } else {
+        number1 = 3;
+        number2 = 1;
+        number3 = 2;
+    }
+};
+
+randomCard();
+
+function changeOne () {
+    document.getElementById("door1").style.color = "white";
+    document.getElementById("door1").style.backgroundColor = "grey";  
+    if (number1 === 1) {document.getElementById("door1").innerHTML = "FOUND ME!!!";}
+    else {document.getElementById("door1").innerHTML = "Not Here..";}
+}
+
+
+function changeTwo () {
+    document.getElementById("door2").style.color = "white";
+    document.getElementById("door2").style.backgroundColor = "grey"; 
+    if (number2 === 1) {document.getElementById("door2").innerHTML = "FOUND ME!!!";}
+    else {document.getElementById("door2").innerHTML = "Not Here..";}
+}
+
+
+function changeThree () {
+    document.getElementById("door3").style.color = "white";
+    document.getElementById("door3").style.backgroundColor = "grey";  
+    if (number3 === 1) {document.getElementById("door3").innerHTML = "FOUND ME!!!";}
+    else {document.getElementById("door3").innerHTML = "Not Here...";}
+}
+
+
+
+       </script>
+    
+        </body> 
+</html>
